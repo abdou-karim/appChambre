@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChambreController!{% endblock %}
+
+{% block body %}
+<div class="row">
+<div class="col-lg-3">
+{{ include('layout/menu.html.twig') }}
+</div>
+
+<div class="col-lg-9">
+<table class="table">
+  <thead class="bg-dark text-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Batiment</th>
+      <th scope="col">Type chambre</th>
+      <th scope="col">Numero</th>
+      <th scope="col">Supprimer</th>
+      <th scope="col">Modifier</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="idchambre">{{ chambres.id }}</td>
+      <td >{{ chambres.idBatiment}}</td>
+      <td >{{ chambres.idTypeChambre }}</td>
+      <td id="numerochambre">{{ chambres.numero}}</td>
+      <td><a href="#"><button type="button" data-target="#myModal" name="" id="deletes" class="btn btn-danger" btn-lg btn-block><span class="fa fa-archive"></button></a></td>
+      <td><a href="{{ path('chambre_edit', {'id': chambres.id}) }}"><button type="button" name="" id="" class="btn btn-primary" btn-lg btn-block><span class="fas fa-edit"></button></a></td>
+     
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="modal fade" id="myModal">
+<div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    <div class="modal-header">
+    <h1>title</h1>
+    </div>
+    <div class="modal-body">
+    this is body
+    </div>
+    <div class="modal-footer">
+    <input class="btn btn-primary" data-dismiss="modal" value="Close">
+    </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+{% block javascripts %}
+          {{ parent() }}
+    {{ encore_entry_script_tags('delete') }}
+    
+        {% endblock %}
+        

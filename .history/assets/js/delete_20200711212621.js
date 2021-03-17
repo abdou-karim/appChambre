@@ -1,0 +1,19 @@
+import $ from 'jquery';
+const Routing = require('./Routing')
+$(document).ready(function() {
+    deleteid();
+    let url = Routing.generate("deletechambre");
+    let supprime = $("#delete");
+    let idchambre = $("#idchambre");
+
+    function deleteid() {
+
+        supprime.click(function() {
+
+            alert("ok");
+        })
+
+    }
+
+
+})

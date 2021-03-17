@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChambreController!{% endblock %}
+
+{% block body %}
+    <div class="babs prends ca ">
+            <div class="row  bg-light">
+                <div class="col-lg-3">
+                {{ include('layout/menu.html.twig') }}
+                </div>
+                <div class="col-lg-6">
+                    {{  form_start(form) }}
+                   <div class="form-group">
+                    {{ form_row(form.numero)}}
+                   </div>
+                   <div class="form-goup">
+                    {{ form_row(form.idBatiment)}}
+                    {{ form_row(form.idTypeChambre)}}
+                   </div>
+                           
+                        
+                    <button type="submit" name="enregistrer" id="btn-submit-form"
+                            class="btn btn-primary mt-5 w-100 border-0 rounded-lg text-white">
+                            {% if editMode %}
+                            Modifier chambre
+                            {% else %}
+                            Enregistrer
+                            {% endif %}
+                    </button>
+                </div>
+            </div>
+    {{ form_end(form) }}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('addChambre') }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.min.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+{% endblock %}
